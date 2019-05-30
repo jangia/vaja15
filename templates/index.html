@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <title>Hello SmartNinja</title>
-</head>
-<body>
-<h1>Welcome back to HTML!</h1>
-<a href="/">Index</a>
-<a href="/about">About</a>
-<img src="/static/img/smartninja-logo-1547584690.png">
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}
+Index
+{% endblock title %}
+{% block content %}
+<p>Hello index.html here!</p>
+<p>{{ some_text }}</p>
+<p>{{ current_year }}</p>
+<ul>
+    {% for city in cities %}
+    <li>{{ city }}</li>
+    {% endfor %}
+</ul>
+{% if logged_in %}
+<a href="/logout">Logout</a>
+{% else %}
+<a href="/login">Login</a>
+{% endif %}
+{% endblock content %}
